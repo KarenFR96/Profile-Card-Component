@@ -1,0 +1,109 @@
+:root {
+  /*ASI SE COPIAN DESDE MENTOR
+Dark cyan: hsl(185, 75%, 39%)
+Very dark desaturated blue: hsl(229, 23%, 23%)
+Dark grayish blue: hsl(227, 10%, 46%)
+Dark gray: hsl(0, 0%, 59%)
+*/
+  /*ASI SE DECLARAN, YA QUE SON VARIABLES*/
+  --dark-cyan: hsl(185, 75%, 39%);
+  --very-dark-desaturated-blue: hsl(229, 23%, 23%);
+  --dark-grayish-blue: hsl(227, 10%, 46%);
+  --dark-gray: hsl(0, 0%, 59%);
+}
+
+/*SE USA PARA QUE TODO EL CONTENIDO DE LA CAJA SE ACOMODE, SE APRETE UN POCO (SACADO DE:https://css-tricks.com/box-sizing/
+Universal Box Sizing with Inheritance)*/
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  /*LOS ASTERISCOS SIGNIFICA QUE TOMA TODO EL SITIO WEB*/
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Kumbh Sans", sans-serif;
+  background-color: var(--dark-cyan); /*estoy utilizando una de las variables declaradas previamente*/
+  background-image: url(/images/bg-pattern-top.svg), url(/images/bg-pattern-bottom.svg); /*para poner los circulos de fondo*/
+  background-repeat: no-repeat, no-repeat; /*siempre se va a repetir la imagen si no pongo esto*/
+  background-position: right 50vw bottom 50vh, left 50vw top 50vh ; 
+/*Si se dan valores o porcentajes = X Valor en la horizontal( posiciona la imagen de izquierda a derecha) y Y valor en la vertical (posiciona la imagen de arriba hacia abajo)*/
+/*right y left definen una posición horizontal (X) y top y bottom definen una posición vertical (Y)*/
+/* los valores indicados definen que las imagenes se posicionaron en la parte derecha e izquierda a 50 vw de la parte de arriba y abajo y a 50vh de la parte de abajo y arriba*/
+/*del right empuje al 50% del tamaño de la ventana hacia la izquierda y del bottom empuje 50% del tamaño de la venta hacia arriba y viceversa)*/
+}                       
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /*Para centrar los elementos en el centro verticalmente sabiendo que el main axis es x y hace que el sitio sea responsivo y que tome la medida del contenedor*/
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background-color: white;
+  width: 326px; /*para mobile*/
+  border-radius: 16px;
+  overflow: hidden; /*para que todo el contenido del article se adapte a un solo tamaño*/
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.185); /*box-shadow: everything is given in px [horizontal offset (right of the box if it´s +)] [vertical offset (below of the box if it´s +)] [blur radius] [optional spread radius(increase/decrease the size of the shadow)] [color];*/
+}
+
+.card-header {
+  width: 100%; /*para que la imagen respete el ancho disponible de la card*/
+  display: block; /*para que se quite el espacio entre la imagen de victor y la imagen del encabezado*/
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid #9999992c; /*borde que separa el footer del card-body*/
+}
+
+.card-body-img {
+  border: 5px solid white; /* Sintaxys /* width | style | color */
+  border-radius: 50%;
+  margin-top: calc(
+    -48px - 5px
+  ); /*48 px es la altura de la imagen y los 5px es el borde que le puse, hagp ese calculo, para que la imagen quede justo sobre las montañas)*/
+  background-color: white; /*para que se quite la linea azul alrededor de la foto*/
+}
+
+.card-body-title {
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+span {
+  color: var(--dark-gray);
+  font-weight: 400; /*recordar que el font family traía 400 y 700 aquí uso 400 para que el 26 sea más delgado*/
+}
+
+.card-body-text {
+  color: var(--dark-gray);
+  font-size: 16px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.card-footer-social {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: rgba(253, 253, 253, 0.637);
+}
+
+.card-footer-social p {
+  letter-spacing: 1px;
+}
